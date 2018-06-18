@@ -1,0 +1,115 @@
+tmsh
+load sys config merge from-terminal
+
+[copy past entire configuration below]
+
+ltm virtual IPV4_ANY {
+    destination 0.0.0.0:any
+    ip-forward
+    mask any
+    profiles {
+        fastL4 { }
+    }
+    source 0.0.0.0/0
+    translate-address disabled
+    translate-port disabled
+    vlans {
+        external
+        internal
+    }
+    vlans-enabled
+    vs-index 2
+}
+ltm virtual IPV4_TCP {
+    destination 0.0.0.0:any
+    ip-forward
+    ip-protocol tcp
+    mask any
+    profiles {
+        fastL4 { }
+    }
+    source 0.0.0.0/0
+    translate-address disabled
+    translate-port disabled
+    vlans {
+        external
+        internal
+    }
+    vlans-enabled
+    vs-index 3
+}
+ltm virtual IPV4_UDP {
+    destination 0.0.0.0:any
+    ip-forward
+    ip-protocol udp
+    mask any
+    profiles {
+        fastL4 { }
+    }
+    source 0.0.0.0/0
+    translate-address disabled
+    translate-port disabled
+    vlans {
+        external
+        internal
+    }
+    vlans-enabled
+    vs-index 4
+}
+ltm virtual IPV6_ANY {
+    destination ::.any
+    ip-forward
+    mask any6
+    profiles {
+        fastL4 { }
+    }
+    translate-address disabled
+    translate-port disabled
+    vlans {
+        external
+        internal
+    }
+    vlans-enabled
+    vs-index 5
+}
+ltm virtual IPV6_TCP {
+    destination ::.any
+    ip-forward
+    ip-protocol tcp
+    mask any6
+    profiles {
+        fastL4 { }
+    }
+    translate-address disabled
+    translate-port disabled
+    vlans {
+        external
+        internal
+    }
+    vlans-enabled
+    vs-index 6
+}
+ltm virtual IPV6_UDP {
+    destination ::.any
+    ip-forward
+    ip-protocol udp
+    mask any6
+    profiles {
+        fastL4 { }
+    }
+    translate-address disabled
+    translate-port disabled
+    vlans {
+        external
+        internal
+    }
+    vlans-enabled
+    vs-index 7
+}
+
+Press CTRL-D to submit or CTRL-C to cancel.
+
+list ltm virtual
+
+save /sys config
+

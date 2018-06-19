@@ -13,12 +13,7 @@ ltm virtual IPV4_ANY {
     source 0.0.0.0/0
     translate-address disabled
     translate-port disabled
-    vlans {
-        external
-        internal
-    }
-    vlans-enabled
-    vs-index 2
+     vs-index 2
 }
 ltm virtual IPV4_TCP {
     destination 0.0.0.0:any
@@ -31,11 +26,6 @@ ltm virtual IPV4_TCP {
     source 0.0.0.0/0
     translate-address disabled
     translate-port disabled
-    vlans {
-        external
-        internal
-    }
-    vlans-enabled
     vs-index 3
 }
 ltm virtual IPV4_UDP {
@@ -49,11 +39,6 @@ ltm virtual IPV4_UDP {
     source 0.0.0.0/0
     translate-address disabled
     translate-port disabled
-    vlans {
-        external
-        internal
-    }
-    vlans-enabled
     vs-index 4
 }
 ltm virtual IPV6_ANY {
@@ -65,11 +50,6 @@ ltm virtual IPV6_ANY {
     }
     translate-address disabled
     translate-port disabled
-    vlans {
-        external
-        internal
-    }
-    vlans-enabled
     vs-index 5
 }
 ltm virtual IPV6_TCP {
@@ -82,11 +62,6 @@ ltm virtual IPV6_TCP {
     }
     translate-address disabled
     translate-port disabled
-    vlans {
-        external
-        internal
-    }
-    vlans-enabled
     vs-index 6
 }
 ltm virtual IPV6_UDP {
@@ -99,11 +74,6 @@ ltm virtual IPV6_UDP {
     }
     translate-address disabled
     translate-port disabled
-    vlans {
-        external
-        internal
-    }
-    vlans-enabled
     vs-index 7
 }
 

@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "3b0f9833-f3c4-4ada-837f-470261b6caa8",
+		"name": "Agility 2018 Lab 5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - Device DOS Profile",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "401elliottW!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://192.168.1.150//mgmt/tm/security/dos/device-config/~Common~dos-device-config",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"150"
+					],
+					"path": [
+						"",
+						"mgmt",
+						"tm",
+						"security",
+						"dos",
+						"device-config",
+						"~Common~dos-device-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Modify Device DOS Profile",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "401elliottW!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"dos-device-config\",\r\n    \"dosDeviceVector\": [\r\n        {      \"name\": \"bad-tcp-flags-all-set\",\r\n            \"allowAdvertisement\": \"disabled\",\r\n            \"allowUpstreamScrubbing\": \"disabled\",\r\n            \"attackedDst\": \"disabled\",\r\n            \"autoBlacklisting\": \"disabled\",\r\n            \"autoScrubbing\": \"disabled\",\r\n            \"autoThreshold\": \"disabled\",\r\n            \"badActor\": \"disabled\",\r\n            \"blacklistDetectionSeconds\": 60,\r\n            \"blacklistDuration\": 14400,\r\n            \"ceiling\": \"infinite\",\r\n            \"defaultInternalRateLimit\": \"100\",\r\n            \"detectionThresholdPercent\": \"200\",\r\n            \"detectionThresholdPps\": \"50\",\r\n            \"enforce\": \"enabled\",\r\n            \"floor\": \"100\",\r\n            \"perDstIpDetectionPps\": \"infinite\",\r\n            \"perDstIpLimitPps\": \"infinite\",\r\n            \"perSourceIpDetectionPps\": \"infinite\",\r\n            \"perSourceIpLimitPps\": \"infinite\",\r\n            \"scrubbingDetectionSeconds\": \"10\",\r\n            \"scrubbingDuration\": \"900\",\r\n            \"simulateAutoThreshold\": \"disabled\",\r\n            \"state\": \"mitigate\",\r\n            \"thresholdMode\": \"manual\"\r\n   }\r\n]\r\n}"
+				},
+				"url": {
+					"raw": "https://192.168.1.150//mgmt/tm/security/dos/device-config/~Common~dos-device-config",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"150"
+					],
+					"path": [
+						"",
+						"mgmt",
+						"tm",
+						"security",
+						"dos",
+						"device-config",
+						"~Common~dos-device-config"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

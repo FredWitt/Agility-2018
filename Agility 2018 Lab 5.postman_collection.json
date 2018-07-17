@@ -52,7 +52,7 @@
 		{
 			"name": "Step 4: Create Address List",
 			"request": {
-				"url": "https://{{bigiq01-mgmt}}/mgmt/cm/firewall/working-config/address-lists",
+				"url": "https://{{bigiq01-mgmt}}/mgmt/cm/adc-core/working-config/net/ip-address-lists",
 				"method": "POST",
 				"header": [
 					{
@@ -62,7 +62,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],

@@ -12,7 +12,18 @@
 			"request": {
 				"url": "https://{{bigip02}}/mgmt/tm/security/dos/device-config/~Common~dos-device-config",
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},
@@ -27,6 +38,11 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
@@ -43,7 +59,18 @@
 			"request": {
 				"url": "https://{{bigip02}}/mgmt/tm/security/dos/device-config/~Common~dos-device-config",
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},
@@ -87,7 +114,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
@@ -112,7 +139,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
@@ -137,7 +164,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
@@ -162,7 +189,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
@@ -187,7 +214,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],

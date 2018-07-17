@@ -41,7 +41,7 @@
 		{
 			"name": "Step 3: Get Modified Device DOS Profile",
 			"request": {
-				"url": "https://{{bigip02}}mgmt/tm/security/dos/device-config/~Common~dos-device-config",
+				"url": "https://{{bigip02}}/mgmt/tm/security/dos/device-config/~Common~dos-device-config",
 				"method": "GET",
 				"header": [],
 				"body": {},

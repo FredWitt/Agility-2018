@@ -10,9 +10,15 @@
 		{
 			"name": "Step 1: Get Original Device DOS Profile",
 			"request": {
-				"url": "https://{{bigip02}}/mgmt/tm/security/dos/device-config/~Common~dos-device-config",
+				"url": "https://{{bigip01}}/mgmt/tm/security/dos/device-config/~Common~dos-device-config",
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},
@@ -21,12 +27,17 @@
 		{
 			"name": "Step 2:  Modify Device DOS Profile",
 			"request": {
-				"url": "https://{{bigip02}}/mgmt/tm/security/dos/device-config/~Common~dos-device-config",
+				"url": "https://{{bigip01}}/mgmt/tm/security/dos/device-config/~Common~dos-device-config",
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
 						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
@@ -41,9 +52,15 @@
 		{
 			"name": "Step 3: Get Modified Device DOS Profile",
 			"request": {
-				"url": "https://{{bigip02}}/mgmt/tm/security/dos/device-config/~Common~dos-device-config",
+				"url": "https://{{bigip01}}/mgmt/tm/security/dos/device-config/~Common~dos-device-config",
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},
@@ -68,7 +85,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "        {\r\n            \"addresses\": [\r\n                {\r\n                    \"address\": \"10.20.0.200/24\",\r\n                    \"description\": \"Joanna Netowrk\"\r\n                },\r\n                {\r\n                    \"address\": \"10.20.0.200\",\r\n                    \"description\": \"Joanna Host\"\r\n                }\r\n            ],\r\n            \"partition\": \"Common\",\r\n            \"name\": \"API_Naughty_Address_List\"\r\n}\r\n"
+					"raw": "        {\r\n            \"addresses\": [\r\n                {\r\n                    \"address\": \"10.20.0.0/24\",\r\n                    \"description\": \"Joanna Netowrk\"\r\n                },\r\n                {\r\n                    \"address\": \"10.20.0.200\",\r\n                    \"description\": \"Joanna Host\"\r\n                }\r\n            ],\r\n            \"partition\": \"Common\",\r\n            \"name\": \"API_Naughty_Address_List\"\r\n}\r\n"
 				},
 				"description": ""
 			},
@@ -77,7 +94,7 @@
 		{
 			"name": "Step 5: Create New Rule",
 			"request": {
-				"url": "https://{{bigiq01-mgmt}}//mgmt/cm/firewall/working-config/rule-lists",
+				"url": "https://{{bigiq01-mgmt}}/mgmt/cm/firewall/working-config/rule-lists",
 				"method": "POST",
 				"header": [
 					{
@@ -87,7 +104,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
@@ -102,7 +119,7 @@
 		{
 			"name": "Step 6: Create New Rule List",
 			"request": {
-				"url": "https://{{bigiq01-mgmt}}//mgmt/cm/firewall/working-config/rule-lists/{{AFM_Rule_ID}}/rules",
+				"url": "https://{{bigiq01-mgmt}}/mgmt/cm/firewall/working-config/rule-lists/{{AFM_Rule_ID}}/rules",
 				"method": "POST",
 				"header": [
 					{
@@ -112,7 +129,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
@@ -120,6 +137,23 @@
 					"mode": "raw",
 					"raw": "  {\r\n            \"action\": \"drop\",\r\n            \"evalOrder\": 1000,\r\n            \"log\": true,\r\n            \"protocol\": \"any\",\r\n            \"source\": {\r\n                \"addressListReferences\": [\r\n                    {\r\n                        \"link\": \"https://localhost/mgmt/cm/firewall/working-config/address-lists/{{AFM_Address_ID}}\"\r\n                    }\r\n                ]\r\n            },\r\n            \"state\": \"enabled\",\r\n            \"name\": \"API_Naughty_Rule_List\"\r\n}"
 				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Step 7 : Policy ID",
+			"request": {
+				"url": "https://{{bigip01}}/mgmt/cm/firewall/working-config/policies",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
+						"description": ""
+					}
+				],
+				"body": {},
 				"description": ""
 			},
 			"response": []
@@ -137,7 +171,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
@@ -150,26 +184,18 @@
 			"response": []
 		},
 		{
-			"name": "Step 9: Create Drop Rule in Policy",
+			"name": "Step 9 : Get Machine ID",
 			"request": {
-				"url": "https://{{bigiq01-mgmt}}/mgmt/cm/firewall/working-config/policies/{{AFM_Policy_ID}}/rules",
-				"method": "POST",
+				"url": "https://{{bigiq01-mgmt}}/mgmt/cm/firewall/working-config/firewalls",
+				"method": "GET",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					},
-					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "  {\r\n            \"action\": \"drop\",\r\n            \"log\": true,\r\n            \"protocol\": \"any\",\r\n            \"state\": \"enabled\",\r\n            \"name\": \"API_Rule_Drop_Naughty_List\",\r\n            \"evalOrder\": \"9999999\"\r\n}"
-				},
+				"body": {},
 				"description": ""
 			},
 			"response": []
@@ -187,7 +213,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Basic YWRtaW46YWRtaW4=",
+						"value": "Basic YWRtaW46NDAxZWxsaW90dFch",
 						"description": ""
 					}
 				],
